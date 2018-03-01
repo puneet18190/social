@@ -1,0 +1,24 @@
+<table border="1">
+	<tr>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Provider</td>
+		<td>Sub Provider</td>
+		<td>Uid</td>
+		<td>Token</td>
+		<td>Secret</td>
+		<td>Image</td>
+	</tr>
+	<% @social_accounts.each do |a| %>
+		<tr>
+			<td><%= a.name %></td>
+			<td><%= a.email %></td>
+			<td><%= a.provider %></td>
+			<td><%= a.sub_provider %></td>
+			<td><%= a.uid %></td>
+			<td><%= a.token %></td>
+			<td><%= a.secret %></td>
+			<td><%= a.image %></td>
+		</tr>
+	<% end %>
+</table>

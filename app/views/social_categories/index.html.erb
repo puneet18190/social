@@ -1,0 +1,14 @@
+<%= link_to "New Category", new_user_social_category_path(current_user.id) %>
+
+<table border="1">
+	<tr>
+		<td>Name</td>
+		<td>Status</td>
+	</tr>
+	<% @social_categories.each do |a| %>
+		<tr>
+			<td><%= a.name %></td>
+			<td><%= a.active %></td>
+		</tr>
+	<% end %>
+</table>

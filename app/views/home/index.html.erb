@@ -1,0 +1,15 @@
+
+<%= link_to "Connect with Facebook Profile", omniauth_authorize_path('social_account', 'facebook', scope: "email, publish_pages, manage_pages, publish_actions, user_photos", connect: "facebook_profile") %><br>
+
+<%= link_to "Connect with Facebook Page", omniauth_authorize_path('social_account', 'facebook', scope: "email, publish_pages, manage_pages, publish_actions", connect: "facebook_page") %><br>
+
+<%= link_to "Connect with Facebook Group", omniauth_authorize_path('social_account', 'facebook', scope: "email, publish_pages, manage_pages, publish_actions, user_managed_groups", connect: "facebook_group") %><br>
+
+<%= link_to "Connect with Twitter", omniauth_authorize_path('social_account', 'twitter') %><br>
+
+
+<%= link_to "Connect with Linkedin Profile", omniauth_authorize_path('social_account', 'linkedin', scope: 'r_basicprofile+r_emailaddress', connect: "linkedin_profile") %><br>
+
+<%= link_to "Connect with Linkedin Company", omniauth_authorize_path('social_account', 'linkedin', scope: 'r_basicprofile+r_emailaddress+w_share+rw_company_admin', connect: "linkedin_company") %><br>
+
+<%= link_to "Categories", user_social_categories_path(current_user.id) %>

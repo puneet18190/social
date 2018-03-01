@@ -1,0 +1,27 @@
+<h2>Accounts</h2>
+<% @companies.each do |c| %>
+	<div>
+		<div><%= @data.info.image %></div>
+		<div>
+			<%= form_for @social_account, remote: true do |f| %>
+				<h5><%= c["name"] %></h5>
+				<p>Linkedin Company</p>
+				<%= f.hidden_field "name", value: c["name"] %>
+				<%= f.hidden_field "uid", value: c["id"] %>
+				<%= f.hidden_field "email", value: @data.info.email %>
+				<%= f.hidden_field "image", value: @data.info.image %>
+				<%= f.hidden_field "token", value: @data.credentials.token %>
+				<%= f.hidden_field "secret", value: @data.credentials.secret %>
+				<%= f.hidden_field "provider", value: @data.provider %>
+				<%= f.hidden_field "user_id", value: current_user.id %>
+				<%= f.hidden_field "sub_provider", value: "company" %>
+				<% if c.is_create %>
+					<%= f.submit "Add", class: "add_btn" %>		
+				<% else%>
+					<%= button_tag "Added", disabled: true %>	
+				<%end%>
+			<% end %>
+		</div>
+		<a href="/">Back</a>
+	</div>
+<%end%>	

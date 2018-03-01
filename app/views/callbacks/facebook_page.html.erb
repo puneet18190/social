@@ -1,0 +1,25 @@
+<h2>Pages</h2>
+
+<% @pages.each do |p| %>
+<div>
+	<div>
+		<%= form_for @social_account, remote: true do |f| %>
+			<h5><%= p['name'] %></h5>
+			<p>Facebook Page</p>
+			<%= f.hidden_field "name", value: p['name'] %>
+			<%= f.hidden_field "uid", value: p['id'] %>
+			<%= f.hidden_field "email", value: @data.info.email %>
+			<%= f.hidden_field "token", value: p['access_token'] %>
+			<%= f.hidden_field "provider", value: @data.provider %>
+			<%= f.hidden_field "sub_provider", value: "page" %>
+			<%= f.hidden_field "user_id", value: current_user.id %>
+			<% if p['is_create'] %>
+				<%= f.submit "Add", class: "add_btn" %>		
+			<% else%>
+				<%= button_tag "Added", disabled: true %>	
+			<%end%>
+		<% end %>
+	</div>
+	<a href="/">Back</a>
+</div>
+<%end%>

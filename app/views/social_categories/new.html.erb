@@ -1,0 +1,5 @@
+<%= form_for @social_category, url: user_social_categories_path(current_user.id) do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_field :active %>
+	<%= f.submit %>		
+<% end %>

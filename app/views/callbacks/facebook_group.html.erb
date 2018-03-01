@@ -1,0 +1,25 @@
+<h2>Groups</h2>
+
+<% @groups.each do |g| %>
+<div>
+	<div>
+		<%= form_for @social_account, remote: true do |f| %>
+			<h5><%= g['name'] %></h5>
+			<p>Facebook Group</p>
+			<%= f.hidden_field "name", value: g['name'] %>
+			<%= f.hidden_field "uid", value: g['id'] %>
+			<%= f.hidden_field "email", value: @data.info.email %>
+			<%= f.hidden_field "token", value: @data.credentials.token %>
+			<%= f.hidden_field "provider", value: @data.provider %>
+			<%= f.hidden_field "sub_provider", value: "group" %>
+			<%= f.hidden_field "user_id", value: current_user.id %>
+			<% if g['is_create'] %>
+				<%= f.submit "Add", class: "add_btn" %>
+			<% else%>
+				<%= button_tag "Added", disabled: true %>	
+			<%end%>
+		<% end %>
+	</div>
+	<a href="/">Back</a>
+</div>
+<%end%>

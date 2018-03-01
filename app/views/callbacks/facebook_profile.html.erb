@@ -1,0 +1,23 @@
+<h2>Accounts</h2>
+<div>
+	<div><%= @data.info.image %></div>
+	<div>
+		<%= form_for @social_account, remote: true do |f| %>
+			<h5><%= @data.info.name %></h5>
+			<p>Facebook Profile</p>
+			<%= f.hidden_field "name", value: @data.info.name %>
+			<%= f.hidden_field "uid", value: @data.uid %>
+			<%= f.hidden_field "email", value: @data.info.email %>
+			<%= f.hidden_field "image", value: @data.info.image %>
+			<%= f.hidden_field "token", value: @data.credentials.token %>
+			<%= f.hidden_field "provider", value: @data.provider %>
+			<%= f.hidden_field "user_id", value: current_user.id %>
+			<% if @social_account.new_record? %>
+				<%= f.submit "Add", class: "add_btn" %>		
+			<% else%>
+				<%= button_tag "Added", disabled: true %>	
+			<%end%>
+		<% end %>
+	</div>
+	<a href="/">Back</a>
+</div>
